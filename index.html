@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360 Video Sample</title>
+    <meta name="description" content="360 Video — A-Frame">
+<!--    <script src="aframe-master.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@090b5f8f0abe949ddcfdbbc14c75822322a2dd53/dist/aframe-master.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script>
+    <script src="play-on-click.js"></script>
+    <script src="hide-on-play.js"></script>
+  </head>
+
+  <body>
+    <a-scene joystick vr-mode-ui="enabled: false">
+      <a-assets>
+        <video id="video"
+               loop
+               crossorigin="anonymous"
+               playsinline webkit-playsinline
+               src="360_video_sample_01.mp4">
+        <!--https://bitmovin-a.akamaihd.net/content/playhouse-vr/progressive-->
+        </video>
+      </a-assets>
+        <a-entity camera id="camera" position="-3 5 10" rotation="-13 0 0" look-controls wasd-controls></a-entity>
+      <a-videosphere
+        rotation="0 -90 0" src="#video"
+        play-on-click>
+      </a-videosphere>
+<!--
+      <a-camera>
+        <a-entity
+          position="0 0 -1.5"
+          text="align:center;
+                width:6;
+                wrapCount:100;
+                color: white;
+                value: Tab !!"
+          hide-on-play="#video">
+        </a-entity>
+      </a-camera>
+-->
+    </a-scene>
+  </body>
+</html>
